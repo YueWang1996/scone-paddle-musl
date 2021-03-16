@@ -1,0 +1,24 @@
+version: '3.2'
+services:
+    las:
+        image: registry.scontain.com:5050/sconecuratedimages/services:las-scone5.1
+        devices:
+         - "/dev/isgx"
+    volume-demo:
+        #image: registry.scontain.com:5050/sconecuratedimages/apps:python-3.7.3-alpine3.10-scone5.1
+        image: registry.scontain.com:5050/lequocdo/scone-paddle:paddle-2.0.0-musl
+        environment:
+         - SCONE_MODE=hw 
+         - SCONE_SYSLIBS=1
+         - SCONE_LOG=3
+         - SCONE_ALLOW_DLOPEN=2 
+         - SCONE_FORK=1 
+         - SCONE_HEAP=2G 
+        devices:
+         - "/dev/isgx"
+      #  command: sh -c "apk add curl && cd /demo/ && ./helper_scripts/alpine_wait_for_las_and_cas.sh && ./run.sh"
+        command: -c "apk add --update alpine-sdk vim gfortran curl && pip3 install matplotlib && cd /demo/ "
+        depends_on:
+         - las
+        volumes:
+         - .:/demo
