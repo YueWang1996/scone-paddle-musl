@@ -8,7 +8,7 @@ https://github.com/YueWang1996/volume-demo-test.git && cd volume-demo-test
 ```
 Then, you execute the following command:
 ```bash
-docker-compose run volume-demo bash
+docker-compose run volume-demo-test bash
 ```
 Note that running with docker-compose it automatically start CAS service for you.
 Next go to the demo directory:
