@@ -4,7 +4,7 @@ This repository contains SCONE FSPF volume demo.
 ### Details
 Try it out by executing:
 ```bash
-https://github.com/YueWang1996/volume-demo-test.git && cd volume-demo-test
+git clone https://github.com/YueWang1996/volume-demo-test.git && cd volume-demo-test
 ```
 Then, you execute the following command:
 ```bash
