@@ -4,7 +4,7 @@ version: "0.3"
 services:
    - name: volume_service
      image_name: volume-demo:1.0
-     command: python3 /demo/imageClassification_MINST.py 
+     command: python3 /demo/test/imageClassification_MINST.py 
      mrenclaves: [$MRENCLAVE]
      pwd: /
 
