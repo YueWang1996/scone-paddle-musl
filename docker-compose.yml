@@ -11,8 +11,8 @@ services:
         depends_on:
          - las
     volume-demo:
-        #image: registry.scontain.com:5050/sconecuratedimages/apps:python-3.7.3-alpine3.10-scone5.1
         image: registry.scontain.com:5050/lequocdo/scone-paddle:paddle-2.0.0-musl
+        #image: yuewangsue/scone-paddle-musl:1.0
         environment:
          - SCONE_MODE=hw 
          - SCONE_SYSLIBS=1
@@ -24,8 +24,8 @@ services:
          - SCONE_VERSION=1
         devices:
          - "/dev/isgx"
-      #  command: -c "apk add --update alpine-sdk vim gfortran curl && pip3 install matplotlib && cd /demo/ && python3 ./imageClassification_MINST.py"
         command: -c "apk add --update alpine-sdk vim gfortran curl && pip3 install matplotlib && cd /demo/ && chmod +x run.sh && ./run.sh "
+        #command: -c "apk add --update curl && cd /demo/ && chmod +x run.sh && ./run.sh"
         depends_on:
          - las
          - cas
