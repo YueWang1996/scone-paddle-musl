@@ -22,7 +22,7 @@ set -x -e
 
 # deploy the security policy session of the python app to CAS
 # ./gen_policy.sh
-set -x -e
+#set -x -e
 
 # generate a security policy session for python app using template
 unset MRENCLAVE SCONE_CONFIG_ID
@@ -31,7 +31,7 @@ envsubst '$MRENCLAVE' < session_template.yml > session.yml
 unset MRENCLAVE SCONE_CONFIG_ID 
 
 # ./submit_policy.sh
-set -x -e
+#set -x -e
 
 CAS_ADDR=cas
 # get MRENCLAVE of CAS by running: docker-compose run -eSCONE_HASH=1 cas
@@ -49,4 +49,4 @@ rm -rf /demo/encrypted_volume/
 mkdir /demo/encrypted_volume/
 
 # execute the python app with the deployed security session
-SCONE_VERSION=7 SCONE_CONFIG_ID=volume_policy/volume_service python
+SCONE_VERSION=7 SCONE_CONFIG_ID=volume_policy/volume_service python3
